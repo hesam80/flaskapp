@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+<!doctype html>
+<html lang=en>
 <head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-	<title>{% block title %}{%endblock %}</title>
-	
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} -Page</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="preload" as="font">
+<link href="/static/cloud-run-32-color.png" rel="icon" type="image/png" />
+<link href="/static/style.css" rel="stylesheet" type="text/css" />
 </head>
-<body> {% block content %}{% endblock %}
 
+<body>
+	<div class="container">
+		<div class="hero">
+			<div style="text-align:center;">
+				<picture>
+					<source srcset="/static/celebration-dark.svg" media="(prefers-color-scheme: dark)">
+					<img src="/static/celebration.svg" alt="A group celebrating" width="427" height="231">
+				</picture>
+            </div>
+        </div>
+		<div class="message">
+            <h1>{{firstmsg}}</h1>{% block title %}{% endblock %}
+            <nav>
+                 <h1>My App</h1>
+                <ul>
+                    {% if g.user %}
+                    <li><span>{{ g.user['username'] }}</span>
+                    <li><a href="{{ url_for('view') }}">Log Out</a>
+                    {% else %}
+                    <li><a href="{{ url_for('register') }}">Register</a>
+                    <li><a href="{{ url_for('login') }}">Log In</a>
+                    {% endif %}
+                </ul>
+            </nav>
+            <section class="content">
+                <header>
+                    {% block header %}{% endblock %}
+                </header>
+                {% for message in get_flashed_messages() %}
+                <div class="flash">{{ message }}</div>
+            {% endfor %}
+            {% block content %}{% endblock %}
+            </section>
+</div>
 </body>
 </html>

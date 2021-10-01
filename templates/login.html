@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang=en>
+<head>
+<meta charset=utf-8>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>index page</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="preload" as="font">
+<link href="/static/cloud-run-32-color.png" rel="icon" type="image/png" />
+<link href="/static/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="hero">
+			<div style="text-align:center;">
+				<picture>
+					<source srcset="/static/celebration-dark.svg" media="(prefers-color-scheme: dark)">
+					<img src="/static/celebration.svg" alt="A group celebrating" width="427" height="231">
+				</picture>
+			</div>
+
+			<div class="message">
+                
+                <h1>{{firstmsg}}</h1>
+
+                <li>this value pickup Random : {{num}}</li>
+             
+                <li>this value {{num}} * 2 = {{hit}}</li>
+               
+                
+                <h2>{{congmsg}}</h2>
+                {% block content %}
+  <form method="post">
+    <label for="username">Username</label>
+    <input name="username" id="username" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <input type="submit" value="Log In">
+  </form>
+                <li><a href="{{url_for('view')}}" target="_blank">home</a></li>
+                   
+                <button onclick="location.href=templates/resultst.html" value='click here' >log in</button>
+			</div>
+		</div>
+
+		
+	</div>
+</body>
+</html>
