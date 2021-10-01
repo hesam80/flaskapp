@@ -3,7 +3,7 @@
 <head>
 <meta charset=utf-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>index page</title>
+<title>login</title>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="preload" as="font">
 <link href="/static/cloud-run-32-color.png" rel="icon" type="image/png" />
 <link href="/static/style.css" rel="stylesheet" type="text/css" />
@@ -21,14 +21,10 @@
 
 			<div class="message">
                 
-                <h1>{{firstmsg}}</h1>
 
-                <li>this value pickup Random : {{num}}</li>
-             
-                <li>this value {{num}} * 2 = {{hit}}</li>
                
                 
-                <h2>{{congmsg}}</h2>
+                <h2>{{error}}</h2>
                 {% block content %}
   <form method="post">
     <label for="username">Username</label>

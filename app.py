@@ -2,7 +2,6 @@ import os, requests
 import random
 from flask import Flask, flash, redirect, render_template, request, url_for, abort
 
-
 app = Flask(__name__)
 
 
@@ -50,7 +49,7 @@ def success():
 @app.route('/resultst')
 def resultst():
 	num=random.randint(1,12)
-	return render_template('resultst.html', number=num)
+	return render_template('result.html', number=num)
 
 
 if __name__ == '__main__':
