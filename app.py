@@ -31,6 +31,10 @@ def login():
     # was GET or the credentials were invalid
     return render_template('login.html', error=error)
 
+@app.route('/register')
+def register():
+    return render_template(register.html)
+
 @app.route("/indexx")
 def indexx():
 	
