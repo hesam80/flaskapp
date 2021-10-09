@@ -1,6 +1,7 @@
 import os, requests
 import random
 from flask import Flask, flash, redirect, render_template, request, url_for, abort
+import models as dbHandler
 
 app = Flask(__name__)
 
@@ -22,10 +23,12 @@ def view():
 def login():
     error = None
     if request.method == 'POST':
-        if valid_login(request.form['username'],
-                       request.form['password']):
-            return log_the_user_in(request.form['username'])
-        else:
+        username = request.form['username']
+        password = request.form['password']
+        dbHandler.insertUser(username, password)
+        users = dbHandler.retrieveUsers()
+        return render_template('index.html', users=users)
+    else:
             error = 'Invalid username/password'
     # the code below is executed if the request method
     # was GET or the credentials were invalid
