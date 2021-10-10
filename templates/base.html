@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!doctype html>
-<html lang=en>
 <head>
 <meta charset=utf-8>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +10,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container"> 
 		<div class="hero">
 			<div style="text-align:center;">
 				<picture>
@@ -22,28 +20,10 @@
             </div>
         </div>
 		<div class="message" style="text-align:center;">
-            
-            <nav>
-                 <h1>My App</h1>
-                <ul>
-                    {% if g.user %}
-                    <li><span>{{ g.user['username'] }}</span>
-                    <li><a href="{{ url_for('view') }}">Log Out</a>
-                    {% else %}
-                    <li><a href="{{ url_for('register') }}">Register</a>
-                    <li><a href="{{ url_for('login') }}">Log In</a>
-                    {% endif %}
-                </ul>
-            </nav>
-            <section class="content">
-                <header>
-                    {% block header %}{% endblock %}
-                </header>
-                {% for message in get_flashed_messages() %}
-                <div class="flash">{{ message }}</div>
-            {% endfor %}
             {% block content %}{% endblock %}
-            </section>
+           
+         
+</div>
 </div>
 </body>
 </html>
