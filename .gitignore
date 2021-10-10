@@ -136,3 +136,4 @@ templates/page-dish.html
 *.db3
 *.txt
 *.exe
+*.md
