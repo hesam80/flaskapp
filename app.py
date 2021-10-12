@@ -19,8 +19,8 @@ def home():
         users = dbHandler.retrieveUsers()
         return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, users=users)
     else:
-            error = 'Invalid username/password'
-            return redirect(url_for('register'))
+            error = 'please sign up user pass'
+            #return redirect(url_for('register'))
    
     return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, error=error)
 
