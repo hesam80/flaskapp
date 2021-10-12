@@ -20,13 +20,31 @@ def home():
         return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, users=users)
     else:
             error = 'Invalid username/password'
-            redirect(url_for('register'))
+            return redirect(url_for('register'))
    
     return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, error=error)
-@app.route('/register')
+
+@app.route('/result', methods=['POST','GET'])
+def result():
+    if request.method == 'POST':
+        usr = request.form['username']
+        dbHandler.deleteUser(usr)
+        return redirect(url_for('home'))
+    return render_template('result.html')
+
+
+def delet(username):
+    dbHandler.deleteUser('username')
+
+
+@app.route('/register', methods=['POST' , 'GET'])
 def register():
-	
-	return render_template('register.html')
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        dbHandler.insertUser(username, password)
+        return redirect(url_for('home'))
+    return render_template('register.html')
 
 @app.route('/login')
 def login():

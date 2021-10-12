@@ -14,3 +14,10 @@ def retrieveUsers():
 	users = cur.fetchall()
 	con.close()
 	return users
+
+def deleteUser(username):
+    con = sql.connect("database.db")
+    cur = con.cursor()
+    cur.execute("DELETE FROM `users` WHERE `users`.`username`= username")
+    con.commit()
+    con.close()

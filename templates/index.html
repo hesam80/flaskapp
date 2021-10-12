@@ -16,10 +16,10 @@
     			<br>
     			<input type="submit" class="button" value="Log In"/>
   			</form>
-		
-                
+		<br>
+                <a href="{{url_for('result')}}" target="_blank"><h1>Del page</h1></a>
 	 {%if users%}
-    <div class="users" style="margin-left:20%">
+    <div class="users" >
       <h2>Registered Users List</h2>
       <table style="width:100%;">
         {%for user in users%}

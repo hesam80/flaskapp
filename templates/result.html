@@ -1,23 +1,15 @@
 {% extends 'base.html' %}
 
 
-{% block title %}success inherit{%endblock %}
+{% block title %}result{%endblock %}
 
 {% block content %}
-<h1>{{ self.title() }}</h1>
-<h1>result page {{number}}</h1>
-	<h1>az index page </h1>
-	<h2>in this field number</h2>
-	<li><a href="{{url_for('indexx')}}" target="_blank">goto indexx</a></li>
-	<li><a href="{{url_for('success')}}" target="_blank">goto success</a></li>
-	<li><a href="{{url_for('resultst')}}" target="_blank">goto resultst</a></li>
-	<h3>in addad random tolid mishavad</h3>
-	
-	<input type="text" name="number" value="{{number}}">
-	
+<h1>{{usr}}</h1>
+<h1>delete user</h1>
+
+<form action="/result" method="post">
+    			<input type="text" name="username" id="username" placeholder="Username" required/>
+    			<br>
+    			<input type="submit" class="button" value="Del user"/>
+</form>
 {% endblock %}
-<ul id="navigation">
-    {% for item in navigation %}
-        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
-    {% endfor %}
-    </ul>
