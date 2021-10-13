@@ -33,9 +33,6 @@ def result():
     return render_template('result.html')
 
 
-def delet(username):
-    dbHandler.deleteUser('username')
-
 
 @app.route('/register', methods=['POST' , 'GET'])
 def register():

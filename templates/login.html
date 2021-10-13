@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% block title %}login{% endblock %}
 {% block content %}
+<h1>Dashboard</h1>
 {%if users%}
     <div class="users" style="margin-left:20%">
-      <h2>Registered Users List</h2>
+      <h2>Welcome {{user[0]}} onboard </h2>
       <table style="width:100%;">
         {%for user in users%}
           <tr>
