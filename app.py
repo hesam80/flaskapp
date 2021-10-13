@@ -40,7 +40,7 @@ def register():
         username = request.form['username']
         password = request.form['password']
         dbHandler.insertUser(username, password)
-        return redirect(url_for('home'))
+        return redirect(url_for('login'))
     return render_template('register.html')
 
 @app.route('/login')
