@@ -48,6 +48,11 @@ def login():
     users = dbHandler.retrieveUsers()
     return render_template('login.html',users=users)
 
+@app.route('/delete_user', methods=['POST'])
+def delete_user():
+    dbHandler.deleteUser(request.form['user_to_delete'])
+    return redirect(url_for('register'))
+
 if __name__ == '__main__':
     server_port = os.environ.get('PORT', '80')
     app.run(debug=True)

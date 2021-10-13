@@ -10,6 +10,9 @@
         {%for user in users%}
           <tr>
             <td>{{user[0]}}</td>
+            <td><form action="{{ url_for('delete_user') }}" method="post" class="delete-user">
+              <input type="submit" value="Delete {{user[0]}}" name="user_to_delete"></form>
+              </td>
           </tr>   
         {%endfor%}
       </table>
