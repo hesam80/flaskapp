@@ -45,8 +45,8 @@ def register():
 
 @app.route('/login')
 def login():
-
-    return render_template('login.html')
+    users = dbHandler.retrieveUsers()
+    return render_template('login.html',users=users)
 
 if __name__ == '__main__':
     server_port = os.environ.get('PORT', '80')

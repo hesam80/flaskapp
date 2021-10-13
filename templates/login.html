@@ -3,8 +3,8 @@
 {% block content %}
 <h2>Registered Users List</h2>
 {%if users%}
-    <div class="users" style="margin-left:20%">
-        <h1>Welcome onboard {{user[0]}}</h1>
+    <div class="users">
+        <h1>Welcome onboard {{users[0][0]}}</h1>
       
       <table style="width:100%;">
         {%for user in users%}
