@@ -2,9 +2,14 @@
 {% block title %}login{% endblock %}
 {% block content %}
 <h2>Registered Users List</h2>
-{%if users%}
+
     <div class="users">
-        <h1>Welcome onboard {{user[0]}}</h1>
+         {% if session.username %}
+      You are Register {{ session.username }} <a href="/logout">logout</a>.
+   {% else %}
+      You are not Register. <a href="/login">login</a>.
+   {% endif %}
+       
       
       <table style="width:100%;">
         {%for user in users%}
@@ -17,6 +22,6 @@
         {%endfor%}
       </table>
     </div>
-
-    {%endif%}
+<a href="/">home</a>.
+  
 {% endblock %}
