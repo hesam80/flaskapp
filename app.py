@@ -17,17 +17,10 @@ def home():
     """Return a friendly HTTP greeting."""
     firstmessage = "It's redeployedd Wow how it's Beautiful!"
     congramessage="Congratulations, you successfully deployed a container image to Cloud Run!"
-    """Get Cloud Run environment variables."""
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        dbHandler.insertUser(username, password)
-        users = dbHandler.retrieveUsers()
-        return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, users=users)
-    else:
-            error = 'please sign up user pass'
+    """Get Cloud Run environment variables."""        
+    
+    error = 'please sign up user pass'
             #return redirect(url_for('register'))
-   
     return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, error=error)
 
 @app.route('/result', methods=['POST','GET'])
@@ -60,11 +53,11 @@ def login():
 @app.route('/delete_user', methods=['POST'])
 def delete_user():
     dbHandler.deleteUser(request.form['user_to_delete'])
-    return redirect(url_for('register'))
+    return redirect(url_for('logout'))
 
 @app.route("/logout")
 def logout():
-    session["name"] = None
+    session["username"] = None
     return redirect("/")
 
 if __name__ == '__main__':

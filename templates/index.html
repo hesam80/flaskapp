@@ -12,20 +12,20 @@
         <br>
         <a href="{{url_for('login')}}" target="_blank"><h1>Dashboard</h1></a>
                 <a href="{{url_for('result')}}" target="_blank"><h1>Del page</h1></a>
-    {%if users%}
-    {%for user in users%}
+     {% if session.username %}
+   
     <div class="users">
-        <h1>Welcome onboard {{user[0]}}</h1>
+        <h1>Welcome onboard {{ session.username }}</h1>
       
       <table style="width:100%;">
         
           <tr>
-            <td>{{user[0]}}</td>
+            <td>{{ session.username }}</td>
             <td><form action="{{ url_for('delete_user') }}" method="post" class="delete-user">
-              <input type="submit" value="Delete {{user[0]}}" name="user_to_delete"></form>
+              <input type="submit" value="Delete {{ session.username }}" name="user_to_delete"></form>
               </td>
           </tr>   
-        {%endfor%}
+       
       </table>
     </div>
 
