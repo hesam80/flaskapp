@@ -43,7 +43,7 @@ def register():
         return redirect(url_for('login'))
     return render_template('register.html')
 
-@app.route('/login')
+@app.route('/login', methods=["POST", "GET"])
 def login():
     if session.get("username"):
         users = dbHandler.retrieveUsers()
