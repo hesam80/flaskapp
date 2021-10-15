@@ -6,7 +6,7 @@ cache: yarn
 
 # command to install dependencies
 install:
-  - pip install fandogh-cli --upgrade
+  
   - pip install docker
 
 # command to run tests
@@ -14,5 +14,3 @@ script:
   - echo $TRAVIS_COMMIT
   - docker login --username=hesam80 --password=sa13801380
   - docker build -t flaskapp:v0.0  .
-  - docker tag flaskapp:v0.0 hesam80/flaskapp:latest
-  - docker push hesam80/flaskapp:latest
