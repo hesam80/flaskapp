@@ -2,6 +2,7 @@ import os, requests
 import random , sqlite3
 from flask import Flask, flash, redirect, render_template, request, url_for, abort, redirect, session
 from flask_session import Session
+# from flask_session.__init__ import Session
 import models as dbHandler
 
 app = Flask(__name__)
