@@ -16,7 +16,7 @@ script:
   - docker build -t  flaskapp:$TRAVIS_COMMIT .
   - docker tag flaskapp:$TRAVIS_COMMIT hesam80/flaskapp:$TRAVIS_COMMIT
   - docker image ls
- # - docker push hesam80/flaskapp:latest
+  - docker push hesam80/flaskapp:$TRAVIS_COMMIT
  # - COLLECT_ERROR=True fandogh login --username hesam80 --password sa13801380
  # - COLLECT_ERROR=TRUE fandogh image publish --version $TRAVIS_COMMIT
  # - fandogh service apply -f flaskapp.yml
