@@ -10,6 +10,6 @@ RUN pip install flask_session
 
 COPY . /app
 
-ENTRYPOINT [ "python" ]
-
-CMD [ "app.py" ]
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+#CMD ["app.py" , "sh run_sql.sh" ]

@@ -1,5 +1,7 @@
 import sqlite3 as sql
 
+
+
 def insertUser(username,password):
     con = sql.connect("database.db")
     cur = con.cursor()

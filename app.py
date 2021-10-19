@@ -12,7 +12,7 @@ Session(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-    if not session.get("username"):
+    if  session.get("username"):
        # if not there in the session then redirect to the login page
         return redirect("/register")
     """Return a friendly HTTP greeting."""
