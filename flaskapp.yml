@@ -1,5 +1,5 @@
 kind: ExternalService
-name: flaskapp
+name: simpleapp
 spec:
     allow_http: true
     image: hesam80/flaskapp:latest
