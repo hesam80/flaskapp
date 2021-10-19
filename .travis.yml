@@ -1,6 +1,6 @@
 branches:
   only:
-  - master
+  - dev
 language: python
 cache: yarn
 
@@ -16,3 +16,5 @@ script:
   - docker build -t flaskapp:v0.0  .
   - docker tag flaskapp:v0.0 hesam80/flaskapp:latest
   - docker push hesam80/flaskapp:latest
+  - COLLECT_ERROR=True fandogh login --username hesam80 --password sa13801380
+  - fandogh service apply -f flaskapp.yml

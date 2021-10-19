@@ -1,0 +1,12 @@
+kind: ExternalService
+name: flaskapp
+spec:
+    allow_http: true
+    image: hesam80/flaskapp:latest
+    image_pull_policy: Always
+    image_pull_secret: dockerhub
+    port: 5000
+    replicas: 1
+    resources:
+        memory: 200Mi
+
