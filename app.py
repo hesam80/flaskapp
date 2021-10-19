@@ -12,17 +12,19 @@ Session(app)
 
 @app.route('/', methods=['POST', 'GET'])
 def home():
-    if  session.get("username"):
-       # if not there in the session then redirect to the login page
-        return redirect("/register")
-    """Return a friendly HTTP greeting."""
-    firstmessage = "It's redeployedd Wow how it's Beautiful!"
-    congramessage="Congratulations, you successfully deployed a container image to Cloud Run!"
-    """Get Cloud Run environment variables."""        
-    
-    error = 'please sign up user pass'
-            #return redirect(url_for('register'))
-    return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, error=error)
+        if  session.get("username"):
+            # if not there in the session then redirect to the login page
+                
+            """Return a friendly HTTP greeting."""
+            firstmessage = "It's redeployedd Wow how it's Beautiful!"
+            congramessage="Congratulations, you successfully deployed a container image to Cloud Run!"
+            """Get Cloud Run environment variables."""        
+            
+            error = 'please sign up user pass'
+                    #return redirect(url_for('register'))
+            return render_template('index.html',congmsg=congramessage ,firstmsg=firstmessage, error=error)
+        else:
+            return redirect("/register")
 
 @app.route('/result', methods=['POST','GET'])
 def result():
