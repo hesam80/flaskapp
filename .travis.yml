@@ -18,5 +18,5 @@ script:
   - docker image ls
   - docker push hesam80/flaskapp:latest
   - COLLECT_ERROR=True fandogh login --username hesam80 --password sa13801380
-  - COLLECT_ERROR=TRUE fandogh image publish --version $TRAVIS_COMMIT
+  #- COLLECT_ERROR=TRUE fandogh image publish --version $TRAVIS_COMMIT
   - fandogh service apply -f flaskapp.yml
