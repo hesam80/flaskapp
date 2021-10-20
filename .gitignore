@@ -132,7 +132,7 @@ templates/page-dish.html
 .pyre/
 
 *.xlsx
-*.db
+
 *.db3
 *.txt
 *.exe
